@@ -3,6 +3,9 @@
 
 #include <string>
 #include <sys/stat.h>
+#include "../src/iterator.h"
+#include "../src/folder.h"
+#include "../src/null_iterator.h"
 using namespace std;
 
 class Node {
@@ -72,6 +75,11 @@ public:
     virtual string returns_Path()
     {
         return _path;
+    }
+
+    virtual Iterator* createIterator()
+    {
+        return new NullIterator();
     }
 
 private:
